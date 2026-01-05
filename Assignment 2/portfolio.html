@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neelay Shah | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: rgba(15, 23, 42, 0.75);
+      color: #e5e7eb;
+      padding-top: 80px;
+    }
+
+    .topnav {
+      position: fixed;
+      top: 20px;
+      left: 20%;
+      right: 20%;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #38bdf8; 
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .topnav a {
+      text-decoration: none;
+      color: #e5e7eb;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-size: 15px;
+    }
+
+    .topnav a:hover {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+    }
+
+    .topnav a.active {
+      background: #38bdf8;
+      color: #020617;
+      font-weight: 600;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <nav class="topnav">
+    <div class="logo">Neelay Shah</div>
+    <div class="nav-links">
+      <a class="active" href="portfolio.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About Me</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+</body>
+</html>
