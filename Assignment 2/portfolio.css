@@ -134,8 +134,8 @@ img {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.875rem 1.75rem;
-  font-size: 1rem;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.875rem;
   font-weight: 600;
   border-radius: var(--radius);
   border: 1px solid transparent;
@@ -177,12 +177,15 @@ img {
 }
 
 .btn-sm svg {
-  width: 1rem;
-  height: 1rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
 }
 
 .btn-full {
   width: 100%;
+  white-space: nowrap;
+  padding: 0.75rem 1.25rem;
 }
 
 /* =====================================================
@@ -978,7 +981,7 @@ section {
   }
 
   .btn {
-    width: 100%;
+    width: auto;
   }
 
   .about-grid,

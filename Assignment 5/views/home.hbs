@@ -1,0 +1,202 @@
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-overlay"></div>
+    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1600&q=80" alt="Travel" class="hero-img" />
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Est. 2007 · Luxury Travel Curation</p>
+    <h1 class="hero-title">The World<br/><em>Awaits You</em></h1>
+    <p class="hero-subtitle">We don't book holidays. We orchestrate transformations — journeys woven from rare places, intimate knowledge, and the kind of detail that can only come from a lifetime of wandering.</p>
+    <div class="hero-actions">
+      <a href="/destinations" class="btn-primary">Explore Destinations</a>
+      <a href="/packages" class="btn-outline">View Packages</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-bar">
+  <div class="stats-container">
+    <div class="stat-item">
+      <span class="stat-num">{{stats.destinations}}</span>
+      <span class="stat-label">Destinations</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num">{{stats.travelers}}+</span>
+      <span class="stat-label">Travelers Served</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num">{{stats.years}}</span>
+      <span class="stat-label">Years of Excellence</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num">{{stats.awards}}</span>
+      <span class="stat-label">Industry Awards</span>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="section destinations-section">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Curated Escapes</p>
+      <h2 class="section-title">Places That Change You</h2>
+      <p class="section-subtitle">Each destination in our collection has been personally vetted and intimately understood by our travel specialists.</p>
+    </div>
+    <div class="dest-grid">
+      {{#each destinations}}
+      <a href="/destinations/{{_id}}" class="dest-card {{#if @first}}dest-card--large{{/if}}">
+        <div class="dest-img-wrap">
+          <img src="{{image}}" alt="{{name}}" loading="lazy" />
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-meta">
+            <span class="dest-continent">{{continent}}</span>
+            <span class="dest-rating">★ {{rating}}</span>
+          </div>
+          <h3 class="dest-name">{{name}}</h3>
+          <p class="dest-country">{{country}}</p>
+          <p class="dest-tagline">{{tagline}}</p>
+          <div class="dest-price">From <strong>{{formatPrice priceFrom}}</strong> / person</div>
+        </div>
+      </a>
+      {{/each}}
+    </div>
+    <div class="section-cta">
+      <a href="/destinations" class="btn-primary">View All Destinations</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section">
+  <div class="why-bg"></div>
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-text">
+        <p class="section-eyebrow">The Wanderlust Difference</p>
+        <h2 class="section-title">Travel Elevated<br/>to an Art Form</h2>
+        <p>Our curators are not agents — they are scholars of place. Each has lived extensively in the regions they design for, building relationships with hoteliers, guides, and local experts that translate into unparalleled access for you.</p>
+        <a href="/about" class="btn-text">Our Philosophy →</a>
+      </div>
+      <div class="why-features">
+        <div class="why-item">
+          <div class="why-icon">◈</div>
+          <h4>Bespoke Itineraries</h4>
+          <p>Every journey is built from scratch around your desires — no cookie-cutter packages, no compromises.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">◉</div>
+          <h4>Insider Access</h4>
+          <p>Private gallery openings, after-hours temple visits, dinners with local luminaries. We go beyond the guidebook.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">◎</div>
+          <h4>24/7 Concierge</h4>
+          <p>From booking to your last hour abroad, a dedicated specialist is always reachable, day or night.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">⬡</div>
+          <h4>Sustainable Travel</h4>
+          <p>We partner with operators who protect landscapes, preserve cultures, and give back to communities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="section packages-section">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Signature Journeys</p>
+      <h2 class="section-title">Our Finest Packages</h2>
+      <p class="section-subtitle">Handcrafted itineraries for every kind of traveler — from cultural immersion to wild adventure.</p>
+    </div>
+    <div class="pkg-grid">
+      {{#each packages}}
+      <div class="pkg-card">
+        <div class="pkg-img-wrap">
+          <img src="{{image}}" alt="{{name}}" loading="lazy" />
+          <div class="pkg-badge" style="background:{{badgeColor}}">{{badge}}</div>
+          <div class="pkg-discount">{{discount originalPrice price}}</div>
+        </div>
+        <div class="pkg-body">
+          <span class="pkg-type">{{type}}</span>
+          <h3 class="pkg-name">{{name}}</h3>
+          <p class="pkg-dest">{{destination}}</p>
+          <div class="pkg-meta">
+            <span>🕐 {{duration}}</span>
+            <span>👥 {{groupSize}}</span>
+          </div>
+          <div class="pkg-inclusions">
+            {{#each inclusions}}
+            <span class="inclusion-tag">{{this}}</span>
+            {{/each}}
+          </div>
+          <div class="pkg-footer">
+            <div class="pkg-price">
+              <span class="price-orig">{{formatPrice originalPrice}}</span>
+              <span class="price-curr">{{formatPrice price}}</span>
+              <span class="price-per">/ person</span>
+            </div>
+            <a href="/book?packageId={{_id}}" class="btn-book">Book Now</a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Traveler Stories</p>
+      <h2 class="section-title">Journeys That Linger</h2>
+    </div>
+    <div class="testi-grid">
+      {{#each testimonials}}
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"{{text}}"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:{{avatarBg}}">{{avatar}}</div>
+          <div>
+            <div class="testi-name">{{name}}</div>
+            <div class="testi-loc">{{location}} · {{destination}}</div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-section">
+  <div class="cta-bg">
+    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&q=80" alt="Mountains" />
+    <div class="cta-overlay"></div>
+  </div>
+  <div class="cta-content">
+    <p class="section-eyebrow" style="color:#c9a96e">Begin Here</p>
+    <h2>Your Greatest Journey<br/><em>Starts with a Conversation</em></h2>
+    <p>Tell us where you've always wanted to go. We'll take care of everything else.</p>
+    <div class="cta-actions">
+      <a href="/book" class="btn-primary">Plan My Trip</a>
+      <a href="/contact" class="btn-outline-light">Talk to an Expert</a>
+    </div>
+  </div>
+</section>

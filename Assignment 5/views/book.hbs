@@ -1,0 +1,134 @@
+<section class="page-hero page-hero--mini">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?w=1400&q=80" alt="Book" />
+    <div class="page-hero-overlay"></div>
+  </div>
+  <div class="page-hero-content">
+    <p class="section-eyebrow">Begin Here</p>
+    <h1>Book Your Journey</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow">
+    <div class="booking-layout">
+      <div class="booking-form-wrap">
+        <div class="form-card">
+          <h2>Your Journey Awaits</h2>
+          <p class="form-subtitle">Fill in your details and one of our specialists will confirm your booking within 24 hours.</p>
+
+          <form action="/book" method="POST" class="booking-form" id="bookingForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required placeholder="Your full name" />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" />
+              </div>
+              <div class="form-group">
+                <label for="travelers">Number of Travelers *</label>
+                <input type="number" id="travelers" name="travelers" min="1" max="20" value="2" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="packageId">Select Package *</label>
+              <select id="packageId" name="packageId" required>
+                <option value="">— Choose a Package —</option>
+                {{#each packages}}
+                <option value="{{_id}}" {{#if (eq _id ../selectedPackage._id)}}selected{{/if}}
+                  data-price="{{price}}">
+                  {{name}} — {{destination}} ({{formatPrice price}}/person)
+                </option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="date">Preferred Travel Date *</label>
+              <input type="date" id="date" name="date" required />
+            </div>
+            <div class="form-group">
+              <label for="notes">Special Requests or Notes</label>
+              <textarea id="notes" name="notes" rows="4"
+                placeholder="Anniversary celebrations, dietary requirements, accessibility needs..."></textarea>
+            </div>
+
+            <div class="price-preview" id="pricePreview" style="display:none">
+              <div class="price-preview-label">Estimated Total</div>
+              <div class="price-preview-value" id="previewTotal">$0</div>
+              <div class="price-preview-note">Final price confirmed by your specialist</div>
+            </div>
+
+            <button type="submit" class="btn-primary btn-block btn-large">Confirm Booking</button>
+            <p class="form-note">✓ Free cancellation within 48 hours &nbsp; ✓ No hidden fees</p>
+          </form>
+        </div>
+      </div>
+
+      <aside class="booking-sidebar">
+        {{#if selectedPackage}}
+        <div class="selected-pkg-card">
+          <img src="{{selectedPackage.image}}" alt="{{selectedPackage.name}}" />
+          <div class="selected-pkg-body">
+            <span class="pkg-type">{{selectedPackage.type}}</span>
+            <h4>{{selectedPackage.name}}</h4>
+            <p>{{selectedPackage.destination}}</p>
+            <p>{{selectedPackage.duration}}</p>
+            <div class="selected-pkg-price">{{formatPrice selectedPackage.price}} / person</div>
+          </div>
+        </div>
+        {{/if}}
+        <div class="booking-trust">
+          <h4>Why Book With Us?</h4>
+          <ul>
+            <li>✦ Personal travel specialist assigned</li>
+            <li>✦ 24/7 emergency support</li>
+            <li>✦ Flexible rescheduling policy</li>
+            <li>✦ Best price guarantee</li>
+            <li>✦ Curated local experiences</li>
+            <li>✦ Carbon offset included</li>
+          </ul>
+        </div>
+        <div class="booking-contact">
+          <p>Prefer to talk?</p>
+          <a href="tel:+919876543210" class="contact-phone">📞 +91 98765 43210</a>
+          <a href="mailto:hello@wanderlust.travel" class="contact-email">✉ hello@wanderlust.travel</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<script>
+  const packageSelect = document.getElementById('packageId');
+  const travelersInput = document.getElementById('travelers');
+  const pricePreview = document.getElementById('pricePreview');
+  const previewTotal = document.getElementById('previewTotal');
+
+  function updatePreview() {
+    const opt = packageSelect.selectedOptions[0];
+    const price = opt ? parseInt(opt.dataset.price) : 0;
+    const travelers = parseInt(travelersInput.value) || 1;
+    if (price) {
+      pricePreview.style.display = 'block';
+      previewTotal.textContent = '$' + (price * travelers).toLocaleString();
+    } else {
+      pricePreview.style.display = 'none';
+    }
+  }
+
+  packageSelect.addEventListener('change', updatePreview);
+  travelersInput.addEventListener('input', updatePreview);
+
+  // Set min date to today
+  document.getElementById('date').min = new Date().toISOString().split('T')[0];
+
+  updatePreview();
+</script>

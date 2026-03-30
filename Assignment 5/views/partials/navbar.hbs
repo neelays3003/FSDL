@@ -1,0 +1,19 @@
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="/" class="nav-logo">
+      <span class="logo-icon">✦</span>
+      <span class="logo-text">WANDERLUST</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/" class="{{#if (eq activeNav 'home')}}active{{/if}}">Home</a></li>
+      <li><a href="/destinations" class="{{#if (eq activeNav 'destinations')}}active{{/if}}">Destinations</a></li>
+      <li><a href="/packages" class="{{#if (eq activeNav 'packages')}}active{{/if}}">Packages</a></li>
+      <li><a href="/about" class="{{#if (eq activeNav 'about')}}active{{/if}}">About</a></li>
+      <li><a href="/contact" class="{{#if (eq activeNav 'contact')}}active{{/if}}">Contact</a></li>
+    </ul>
+    <a href="/book" class="btn-nav">Book Now</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>

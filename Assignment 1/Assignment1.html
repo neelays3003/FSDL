@@ -1,84 +1,150 @@
-<html>
-    <head>
-        <title> Assignment 1 </title>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Text Formatting Tags</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
 
-    <body>
+        h1 {
+            text-align: center;
+            color: #333;
+        }
 
-    <h1 style="color:blue">Welcome to My Webpage</h1>
-    <h2>HTML Basic Tags Demo</h2>
-    <h3>Learning HTML</h3>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
 
-    
-    <p>
-        This is a <b>basic HTML</b> webpage created to demonstrate
-        <i>important tags</i> used in <u>web development</u>.
-    </p>
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: center;
+        }
 
-    This text is before line break<br>  
-    This text is after line break
-    <hr>
-    
-    <p>
-        Visit <a href="https://www.google.com" target="_blank">Google</a>
-    </p>
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
 
-    <img src="google-logo.jpg" alt="Google_logo" border="2" >
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
 
-    <hr style="border:none; height: 5px; background-color: lightgrey;">
+        code {
+            background-color: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
 
-    <h3>Unordered List</h3>
-    <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-    </ul>
+<h1>HTML Text Formatting Tags</h1>
 
-    <h3>Ordered List</h3>
-    <ol>
-        <li>Design</li>
-        <li>Develop</li>
-        <li>Deploy</li>
-    </ol>
+<table>
+    <tr>
+        <th>Tag</th>
+        <th>Description</th>
+        <th>Example Output</th>
+    </tr>
 
-    <hr>
+    <tr>
+        <td><code>&lt;b&gt;</code></td>
+        <td>Bold text</td>
+        <td><b>Bold</b></td>
+    </tr>
 
-    <h3>Table</h3>
-    <table border="1" cellpadding="5" cellspacing="0">
-        <tr>
-            <th>Name</th>
-            <th>Department</th>
-            <th>Year</th>
-        </tr>
-        <tr>
-            <td>Neelay Shah</td>
-            <td>Computer Engineering</td>
-            <td>Third Year</td>
-        </tr>
-    </table>
+    <tr>
+        <td><code>&lt;strong&gt;</code></td>
+        <td>Important text (semantic bold)</td>
+        <td><strong>Strong</strong></td>
+    </tr>
 
-    <hr>
+    <tr>
+        <td><code>&lt;i&gt;</code></td>
+        <td>Italic text</td>
+        <td><i>Italic</i></td>
+    </tr>
 
-    <h3>Contact Form</h3>
-    <form>
-        Name: <input type="text" name="name"><br><br>
-        Email: <input type="email" name="email"><br><br>
-        Gender:
-        <input type="radio" name="gender"> Male
-        <input type="radio" name="gender"> Female<br><br>
-        Skills:
-        <input type="checkbox"> HTML
-        <input type="checkbox"> CSS
-        <input type="checkbox"> JS<br><br>
-        <textarea rows="5" cols="100" placeholder="Enter your message"></textarea><br><br>
-        <input type="submit" value="Submit">
-        <input type="reset" value="Reset">
-    </form>
+    <tr>
+        <td><code>&lt;em&gt;</code></td>
+        <td>Emphasized text (semantic italic)</td>
+        <td><em>Emphasized</em></td>
+    </tr>
 
-    <hr>
+    <tr>
+        <td><code>&lt;u&gt;</code></td>
+        <td>Underlined text</td>
+        <td><u>Underlined</u></td>
+    </tr>
 
-    <div style="background-color: #000000; padding: 10px; color: white;">This is a div</div>
-    <span style="color: red;" >This is a span</span>
-    
-    </body>
+    <tr>
+        <td><code>&lt;mark&gt;</code></td>
+        <td>Highlighted text</td>
+        <td><mark>Marked</mark></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;small&gt;</code></td>
+        <td>Smaller text</td>
+        <td><small>Small</small></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;del&gt;</code></td>
+        <td>Deleted text</td>
+        <td><del>Deleted</del></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;ins&gt;</code></td>
+        <td>Inserted text</td>
+        <td><ins>Inserted</ins></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;sub&gt;</code></td>
+        <td>Subscript text</td>
+        <td>H<sub>2</sub>O</td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;sup&gt;</code></td>
+        <td>Superscript text</td>
+        <td>x<sup>2</sup></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;code&gt;</code></td>
+        <td>Computer code text</td>
+        <td><code>printf()</code></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;kbd&gt;</code></td>
+        <td>Keyboard input</td>
+        <td><kbd>Ctrl + C</kbd></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;samp&gt;</code></td>
+        <td>Sample output</td>
+        <td><samp>Error</samp></td>
+    </tr>
+
+    <tr>
+        <td><code>&lt;var&gt;</code></td>
+        <td>Variable text</td>
+        <td><var>x</var></td>
+    </tr>
+
+</table>
+
+</body>
 </html>

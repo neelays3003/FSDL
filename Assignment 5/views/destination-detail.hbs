@@ -1,0 +1,119 @@
+<section class="dest-detail-hero">
+  <div class="dest-detail-bg">
+    <img src="{{dest.image}}" alt="{{dest.name}}" />
+    <div class="dest-detail-overlay"></div>
+  </div>
+  <div class="dest-detail-hero-content">
+    <p class="section-eyebrow">{{dest.continent}} · {{dest.country}}</p>
+    <h1>{{dest.name}}</h1>
+    <p class="dest-detail-tagline">{{dest.tagline}}</p>
+    <div class="dest-detail-rating">
+      <span class="rating-stars">★★★★★</span>
+      <span>{{dest.rating}} ({{dest.reviewCount}} reviews)</span>
+    </div>
+  </div>
+  <a href="/destinations" class="back-link">← All Destinations</a>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="dest-detail-layout">
+      <!-- Main Content -->
+      <div class="dest-detail-main">
+        <div class="dest-detail-desc">
+          <h2>About {{dest.name}}</h2>
+          <p>{{dest.description}}</p>
+        </div>
+
+        <div class="dest-detail-info-cards">
+          <div class="info-card">
+            <div class="info-card-icon">🌤</div>
+            <div>
+              <div class="info-card-label">Climate</div>
+              <div class="info-card-value">{{dest.climate}}</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">📅</div>
+            <div>
+              <div class="info-card-label">Best Time to Visit</div>
+              <div class="info-card-value">{{dest.bestTime}}</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">💰</div>
+            <div>
+              <div class="info-card-label">Starting From</div>
+              <div class="info-card-value">{{formatPrice dest.priceFrom}} / person</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">★</div>
+            <div>
+              <div class="info-card-label">Traveler Rating</div>
+              <div class="info-card-value">{{dest.rating}} / 5.0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-highlights-section">
+          <h3>Highlights</h3>
+          <div class="highlights-grid">
+            {{#each dest.highlights}}
+            <div class="highlight-item">
+              <span class="highlight-check">✦</span>
+              <span>{{this}}</span>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+
+        {{#if relatedPackages.length}}
+        <div class="related-packages">
+          <h3>Available Packages</h3>
+          <div class="rel-pkg-list">
+            {{#each relatedPackages}}
+            <div class="rel-pkg-card">
+              <div>
+                <span class="pkg-type">{{type}}</span>
+                <h4>{{name}}</h4>
+                <p>{{duration}} · {{groupSize}}</p>
+              </div>
+              <div class="rel-pkg-right">
+                <div class="rel-pkg-price">{{formatPrice price}}<span>/person</span></div>
+                <a href="/book?packageId={{_id}}" class="btn-book">Book</a>
+              </div>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+        {{/if}}
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="dest-detail-sidebar">
+        <div class="sidebar-card">
+          <h3>Plan Your Trip</h3>
+          <p>Ready to experience {{dest.name}}? Our specialists will craft the perfect itinerary for you.</p>
+          <div class="sidebar-price">
+            <span>From</span>
+            <strong>{{formatPrice dest.priceFrom}}</strong>
+            <span>per person</span>
+          </div>
+          <a href="/book" class="btn-primary btn-block">Start Planning</a>
+          <a href="/contact" class="btn-outline btn-block" style="margin-top:0.75rem">Talk to an Expert</a>
+        </div>
+        <div class="sidebar-card sidebar-card--dark">
+          <h4>✦ Wanderlust Promise</h4>
+          <ul class="promise-list">
+            <li>Personally curated itineraries</li>
+            <li>Insider local knowledge</li>
+            <li>24/7 trip support</li>
+            <li>Flexible booking policy</li>
+            <li>Best price guarantee</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

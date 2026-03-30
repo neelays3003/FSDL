@@ -1,0 +1,88 @@
+<section class="page-hero page-hero--short">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1400&q=80" alt="Destinations" />
+    <div class="page-hero-overlay"></div>
+  </div>
+  <div class="page-hero-content">
+    <p class="section-eyebrow">Curated Worldwide</p>
+    <h1>Our Destinations</h1>
+    <p>87 extraordinary places, each one intimately known and passionately curated.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <!-- Filters -->
+    <div class="filter-bar">
+      <form action="/destinations" method="GET" class="filter-form">
+        <div class="filter-group">
+          <label>Filter by Region</label>
+          <div class="filter-tabs">
+            <a href="/destinations?continent=all{{#if searchQuery}}&search={{searchQuery}}{{/if}}"
+               class="filter-tab {{#if (eq selectedContinent 'all')}}active{{/if}}">All</a>
+            {{#each continents}}
+            <a href="/destinations?continent={{this}}{{#if ../searchQuery}}&search={{../searchQuery}}{{/if}}"
+               class="filter-tab {{#if (eq this ../selectedContinent)}}active{{/if}}">{{this}}</a>
+            {{/each}}
+          </div>
+        </div>
+        <div class="filter-search">
+          <input type="text" name="search" placeholder="Search destinations..." value="{{searchQuery}}"
+            class="search-input" />
+          {{#if selectedContinent}}<input type="hidden" name="continent" value="{{selectedContinent}}" />{{/if}}
+          <button type="submit" class="search-btn">Search</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Results -->
+    {{#if destinations.length}}
+    <div class="destinations-results">
+      <p class="results-count">{{destinations.length}} destination{{#if (eq destinations.length 1)}}{{else}}s{{/if}} found</p>
+    </div>
+    <div class="dest-list-grid">
+      {{#each destinations}}
+      <a href="/destinations/{{_id}}" class="dest-list-card">
+        <div class="dlc-img">
+          <img src="{{image}}" alt="{{name}}" loading="lazy" />
+          <div class="dlc-overlay"></div>
+          <span class="dlc-continent">{{continent}}</span>
+        </div>
+        <div class="dlc-body">
+          <div class="dlc-header">
+            <div>
+              <h3 class="dlc-name">{{name}}</h3>
+              <p class="dlc-country">{{country}}</p>
+            </div>
+            <div class="dlc-rating">
+              <span class="rating-star">★</span> {{rating}}
+              <span class="rating-count">({{reviewCount}})</span>
+            </div>
+          </div>
+          <p class="dlc-tagline">{{tagline}}</p>
+          <div class="dlc-highlights">
+            {{#each highlights}}
+            <span class="highlight-tag">{{this}}</span>
+            {{/each}}
+          </div>
+          <div class="dlc-footer">
+            <div class="dlc-info">
+              <span>🌤 {{climate}}</span>
+              <span>📅 Best: {{bestTime}}</span>
+            </div>
+            <div class="dlc-price">From <strong>{{formatPrice priceFrom}}</strong></div>
+          </div>
+        </div>
+      </a>
+      {{/each}}
+    </div>
+    {{else}}
+    <div class="no-results">
+      <div class="no-results-icon">🗺</div>
+      <h3>No destinations found</h3>
+      <p>Try adjusting your search or filter criteria.</p>
+      <a href="/destinations" class="btn-primary">View All Destinations</a>
+    </div>
+    {{/if}}
+  </div>
+</section>

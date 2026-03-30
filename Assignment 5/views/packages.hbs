@@ -1,0 +1,60 @@
+<section class="page-hero page-hero--short">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1400&q=80" alt="Packages" />
+    <div class="page-hero-overlay"></div>
+  </div>
+  <div class="page-hero-content">
+    <p class="section-eyebrow">Handcrafted Itineraries</p>
+    <h1>Travel Packages</h1>
+    <p>Every detail considered, every moment elevated.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label>Filter by Type</label>
+        <div class="filter-tabs">
+          <a href="/packages?type=all" class="filter-tab {{#if (eq selectedType 'all')}}active{{/if}}">All</a>
+          {{#each types}}
+          <a href="/packages?type={{this}}" class="filter-tab {{#if (eq this ../selectedType)}}active{{/if}}">{{this}}</a>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-full-grid">
+      {{#each packages}}
+      <div class="pkg-full-card">
+        <div class="pkg-full-img">
+          <img src="{{image}}" alt="{{name}}" loading="lazy" />
+          <div class="pkg-badge" style="background:{{badgeColor}}">{{badge}}</div>
+          <div class="pkg-type-pill">{{type}}</div>
+        </div>
+        <div class="pkg-full-body">
+          <h3 class="pkg-name">{{name}}</h3>
+          <p class="pkg-dest">📍 {{destination}}</p>
+          <div class="pkg-meta">
+            <span>🕐 {{duration}}</span>
+            <span>👥 {{groupSize}}</span>
+          </div>
+          <div class="pkg-inclusions pkg-inclusions--compact">
+            {{#each inclusions}}
+            <span class="inclusion-tag">✓ {{this}}</span>
+            {{/each}}
+          </div>
+          <div class="pkg-footer">
+            <div class="pkg-price">
+              <div class="price-orig">{{formatPrice originalPrice}}</div>
+              <div class="price-curr-large">{{formatPrice price}}</div>
+              <div class="price-per">per person · {{discount originalPrice price}}</div>
+            </div>
+            <a href="/book?packageId={{_id}}" class="btn-primary">Book This Package</a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>

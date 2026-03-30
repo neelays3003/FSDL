@@ -1,0 +1,66 @@
+<section class="section confirmation-section">
+  <div class="container container--narrow">
+    <div class="confirmation-card">
+      <div class="confirmation-icon">✦</div>
+      <h1>Your Journey is Confirmed</h1>
+      <p class="confirmation-subtitle">Thank you, <strong>{{booking.name}}</strong>. Your booking has been received and a specialist will be in touch within 24 hours.</p>
+
+      <div class="booking-details">
+        <h3>Booking Details</h3>
+        <div class="booking-detail-grid">
+          <div class="booking-detail-row">
+            <span class="detail-label">Booking ID</span>
+            <span class="detail-value booking-id">{{booking._id}}</span>
+          </div>
+          <div class="booking-detail-row">
+            <span class="detail-label">Package</span>
+            <span class="detail-value">{{booking.packageName}}</span>
+          </div>
+          <div class="booking-detail-row">
+            <span class="detail-label">Destination</span>
+            <span class="detail-value">{{booking.destination}}</span>
+          </div>
+          <div class="booking-detail-row">
+            <span class="detail-label">Travelers</span>
+            <span class="detail-value">{{booking.travelers}}</span>
+          </div>
+          <div class="booking-detail-row">
+            <span class="detail-label">Travel Date</span>
+            <span class="detail-value">{{booking.date}}</span>
+          </div>
+          <div class="booking-detail-row">
+            <span class="detail-label">Contact Email</span>
+            <span class="detail-value">{{booking.email}}</span>
+          </div>
+          <div class="booking-detail-row booking-detail-row--total">
+            <span class="detail-label">Estimated Total</span>
+            <span class="detail-value detail-total">{{formatPrice booking.totalPrice}}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="confirmation-next">
+        <h4>What Happens Next?</h4>
+        <div class="next-steps">
+          <div class="next-step">
+            <div class="step-num">1</div>
+            <p>A dedicated travel specialist will review your booking and contact you within 24 hours.</p>
+          </div>
+          <div class="next-step">
+            <div class="step-num">2</div>
+            <p>Together, you'll refine your itinerary and discuss any custom requirements.</p>
+          </div>
+          <div class="next-step">
+            <div class="step-num">3</div>
+            <p>Once confirmed, you'll receive a detailed trip document with everything you need.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="confirmation-actions">
+        <a href="/" class="btn-primary">Return Home</a>
+        <a href="/destinations" class="btn-outline">Explore More Destinations</a>
+      </div>
+    </div>
+  </div>
+</section>
