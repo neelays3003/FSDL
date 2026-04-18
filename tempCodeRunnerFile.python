@@ -1,0 +1,55 @@
+import requests
+
+def get_university(city):
+    url = "https://jsonmock.hackerrank.com/api/universities"
+    
+    page = 1
+    max_students = -1
+    best_university = None
+    
+    while True:
+        response = requests.get(url, params={"page": page})
+        data = response.json()
+        
+        for uni in data["data"]:
+            # Get city safely from nested dictionary
+            uni_city = uni.get("location", {}).get("city", "")
+            
+            if uni_city.lower() == city.lower():
+                students = uni.get("international_students")
+                
+                # Convert to integer if valid
+                if students is not None:
+                    students = int(students)
+                    
+                    if students > max_students:
+                        max_students = students
+                        best_university = uni.get("name")
+        
+        # Stop when all pages are processed
+        if page >= data.get("total_pages", 0):
+            break
+        
+        page += 1
+    
+    return best_university
+
+
+def main():
+    city1 = input().strip()
+    city2 = input().strip()
+    
+    result = get_university(city1)
+    
+    if result:
+        print(result)
+    else:
+        result = get_university(city2)
+        if result:
+            print(result)
+        else:
+            print("No universities found")
+
+
+if __name__ == "__main__":
+    main()

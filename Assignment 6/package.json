@@ -1,0 +1,15 @@
+{
+  "name": "appointment-booking-app",
+  "version": "1.0.0",
+  "description": "Online Appointment Booking App - React + Node.js + Express + MongoDB",
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "dev:server": "cd server && node index.js",
+    "dev:client": "cd client && npx vite",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "start": "npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
